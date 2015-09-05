@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ibay@localhost" uuid="84afd727-cfba-48ac-826c-965535d153d2">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="ibay"/>
+    <table name="categories" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="category_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="sub_categories_category_id_foreign" table="sub_categories" schema="" catalog="ibay" columns="category_id"/>
+    </table>
+    <table name="conditions" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="condition_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="condition_description" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="products_condition_id_foreign" table="products" schema="" catalog="ibay" columns="condition_id"/>
+    </table>
+    <table name="feedbacks" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="comment" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="buyer_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="seller_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rating" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="feedbacks_product_id_foreign" columns="product_id" ref-table="products" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="feedbacks_buyer_id_foreign" columns="buyer_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="feedbacks_seller_id_foreign" columns="seller_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="feedbacks_buyer_id_foreign" unique="false" columns="buyer_id"/>
+      <index name="feedbacks_product_id_foreign" unique="false" columns="product_id"/>
+      <index name="feedbacks_seller_id_foreign" unique="false" columns="seller_id"/>
+    </table>
+    <table name="migrations" schema="" catalog="ibay" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="password_resets" schema="" catalog="ibay" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="products" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="seller_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="item_number" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sale_type" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sub_category_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="condition_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sold_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="quantity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="description" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE UNSIGNED" precision="15" scale="2" nullable="false" jdbcType="8"/>
+      <column name="shipping_price" sqlType="DOUBLE UNSIGNED" precision="15" scale="2" nullable="false" jdbcType="8"/>
+      <column name="buy_now_payment_value" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="add_to_cart_payment_value" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="return_policy_days" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="products_condition_id_foreign" columns="condition_id" ref-table="conditions" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="products_seller_id_foreign" columns="seller_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="products_sub_category_id_foreign" columns="sub_category_id" ref-table="sub_categories" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="feedbacks_product_id_foreign" table="feedbacks" schema="" catalog="ibay" columns="product_id"/>
+      <exported-key name="purchases_product_id_foreign" table="purchases" schema="" catalog="ibay" columns="product_id"/>
+      <exported-key name="user_bids_product_id_foreign" table="user_bids" schema="" catalog="ibay" columns="product_id"/>
+      <exported-key name="watch_lists_product_id_foreign" table="watch_lists" schema="" catalog="ibay" columns="product_id"/>
+      <index name="products_condition_id_foreign" unique="false" columns="condition_id"/>
+      <index name="products_seller_id_foreign" unique="false" columns="seller_id"/>
+      <index name="products_sub_category_id_foreign" unique="false" columns="sub_category_id"/>
+    </table>
+    <table name="purchases" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="buyer_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="transaction_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="purchase_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="purchases_product_id_foreign" columns="product_id" ref-table="products" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="purchases_buyer_id_foreign" columns="buyer_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="purchases_buyer_id_foreign" unique="false" columns="buyer_id"/>
+      <index name="purchases_product_id_foreign" unique="false" columns="product_id"/>
+    </table>
+    <table name="sale_types" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="sale_types_code_unique" unique="true" columns="code"/>
+    </table>
+    <table name="sub_categories" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="category_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sub_category_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="sub_categories_category_id_foreign" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="products_sub_category_id_foreign" table="products" schema="" catalog="ibay" columns="sub_category_id"/>
+      <index name="sub_categories_category_id_foreign" unique="false" columns="category_id"/>
+    </table>
+    <table name="user_bids" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="buyer_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bid_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_bids_product_id_foreign" columns="product_id" ref-table="products" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_bids_buyer_id_foreign" columns="buyer_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_bids_buyer_id_foreign" unique="false" columns="buyer_id"/>
+      <index name="user_bids_product_id_foreign" unique="false" columns="product_id"/>
+    </table>
+    <table name="user_messages" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="receiver_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sender_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="text" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sent_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_messages_sender_id_foreign" columns="sender_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_messages_receiver_id_foreign" columns="receiver_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="user_messages_receiver_id_foreign" unique="false" columns="receiver_id"/>
+      <index name="user_messages_sender_id_foreign" unique="false" columns="sender_id"/>
+    </table>
+    <table name="users" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="first_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="75" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="VARCHAR" precision="7" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_admin" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="positive_feedback_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="negative_feedback_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="feedbacks_buyer_id_foreign" table="feedbacks" schema="" catalog="ibay" columns="buyer_id"/>
+      <exported-key name="feedbacks_seller_id_foreign" table="feedbacks" schema="" catalog="ibay" columns="seller_id"/>
+      <exported-key name="products_seller_id_foreign" table="products" schema="" catalog="ibay" columns="seller_id"/>
+      <exported-key name="purchases_buyer_id_foreign" table="purchases" schema="" catalog="ibay" columns="buyer_id"/>
+      <exported-key name="user_bids_buyer_id_foreign" table="user_bids" schema="" catalog="ibay" columns="buyer_id"/>
+      <exported-key name="user_messages_sender_id_foreign" table="user_messages" schema="" catalog="ibay" columns="sender_id"/>
+      <exported-key name="user_messages_receiver_id_foreign" table="user_messages" schema="" catalog="ibay" columns="receiver_id"/>
+      <exported-key name="watch_lists_buyer_id_foreign" table="watch_lists" schema="" catalog="ibay" columns="buyer_id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+    </table>
+    <table name="watch_lists" schema="" catalog="ibay" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="buyer_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="watch_lists_product_id_foreign" columns="product_id" ref-table="products" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="watch_lists_buyer_id_foreign" columns="buyer_id" ref-table="users" ref-schema="" ref-catalog="ibay" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="watch_lists_buyer_id_foreign" unique="false" columns="buyer_id"/>
+      <index name="watch_lists_product_id_foreign" unique="false" columns="product_id"/>
+    </table>
+  </data-source>
+</component>
