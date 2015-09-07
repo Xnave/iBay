@@ -1,0 +1,108 @@
+body {
+    background-color: #EBEBEB;
+}
+
+.navbar {
+     border-radius: 0px;
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: #e7e7e7;
+    border: 0px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.05);
+    font-size: 12px;
+}
+
+.welcomeImg{
+    width: 100%;
+    height: 194px;
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .col-md-3 {
+        width: 20%;
+    }
+}
+
+a.thumbnail {
+    text-decoration: none;
+}
+
+.welcomeEmptyBox{
+    width: 100%;
+    height: 158px;
+}
+
+.welcomeTitle {
+    background-color: rgba(0, 0, 0, 0.54);
+    /*font-size: 18px;*/
+    color: rgba(255,255,255,0.87);
+    /* text-decoration: none; */
+    height: 36px;
+    width: 100%;
+    padding: 8px;
+}
+
+@media screen and (max-width: 1200px) {
+    .welcomeImg{
+        width: 100%;
+        height: 154px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .welcomeEmptyBox{
+        width: 100%;
+        height: 118px;
+    }
+}
+
+.slider{
+    height: 400px;
+    background-color: white;
+    margin: 0px 0px 15px 0px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+
+/* NavBar */
+
+.form-control {
+    height: 30px;
+}
+
+@media (min-width: 768px){
+    .navbar-form .form-control {
+        font-size: 12px;
+    }
+}
+
+.btn {
+    font-size: 12px;
+    height: 30px;
+}
+
+.navbar-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchInput {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.searchSubmit {
+    border-radius: 0px 4px 4px 0px;
+    margin-left: -4px;
+}
+
+@media (min-width: 768px) {
+    .navbar-form .form-control {
+        font-size: 12px;
+        width: 300px;
+    }
+}

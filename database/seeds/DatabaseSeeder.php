@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function run()
 	{
+
+//		DB::table('categories')->insert(array(
+//				array('id' => NULL, 'category_name' => "N'àåôğä", 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
+//				array('id' => NULL, 'category_name' => 'aaa', 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
+//		));
+
+
 		DB::table('categories')->insert(array(
 				array('id' => NULL, 'category_name' => 'Fashion', 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
 				array('id' => NULL, 'category_name' => 'Electronics', 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
