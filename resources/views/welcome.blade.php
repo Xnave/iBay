@@ -3,7 +3,29 @@
 @section('content')
 	<div class="container changer">
 
-		<div class="row slider"></div>
+		<div class="row slider">
+
+			<div class="mask">
+				<ul class="images">
+					<li>
+						<img width="270" src="{{ asset('/images/1.jpg') }}" />
+					</li>
+					<li>
+						<img width="270" src="{{ asset('/images/2.jpg') }}" />
+					</li>
+				</ul>
+				<span class="control prev">&#10151;</span>
+				<span class="control next">&#10151;</span>
+			</div>
+
+			<ul class="triggers">
+				<li></li>
+				<li></li>
+			</ul>
+
+
+
+		</div>
 
 		<div class="row">
 
@@ -82,4 +104,8 @@
 		</div>
 
 	</div>
+@endsection
+
+@section('scripts')
+
 @endsection
