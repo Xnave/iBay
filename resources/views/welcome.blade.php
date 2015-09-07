@@ -27,8 +27,6 @@
 				<li></li>
 			</ul>
 
-
-
 		</div>
 
 		<div class="row">
