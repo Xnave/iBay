@@ -13,12 +13,16 @@
 					<li>
 						<img width="270" src="{{ asset('/images/2.jpg') }}" />
 					</li>
+					<li>
+						<img width="270" src="{{ asset('/images/3.jpg') }}" />
+					</li>
 				</ul>
 				<span class="control prev">&#10151;</span>
 				<span class="control next">&#10151;</span>
 			</div>
 
 			<ul class="triggers">
+				<li></li>
 				<li></li>
 				<li></li>
 			</ul>
