@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 	{
 
 //		DB::table('categories')->insert(array(
-//				array('id' => NULL, 'category_name' => "N'�����", 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
+//				array('id' => NULL, 'category_name' => 'אופנה', 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
 //				array('id' => NULL, 'category_name' => 'aaa', 'created_at' => date("Y-m-d h:i:s"), 'updated_at' => date("Y-m-d h:i:s") ),
 //		));
 
