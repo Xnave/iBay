@@ -18,43 +18,38 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/products/new') }}">
+						{!! Form::open(array('action' => array('ProductsController@store'),
+                                                  'method' => 'POST', 'class' => 'form-horizontal')) !!}
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Category</label>
+							{!! Form::label('category', 'Category', ['class' => 'col-md-4 control-label']) !!}
 
 							<div class="col-md-6">
-								<select>
-									@foreach($categories as $category)
-										<option>{{ $category->category_name  }}</option>
-									@endforeach
-								</select>
+								{!! Form::select('sub_category_id', \App\Category::lists('category_name', 'id'), null /* default value */ ,['class' => 'form-control']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Title</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="title" value="{{ old('title') }}">
+								{!! Form::text('title', old('title'), ['id' => 'titleInput', 'class' => 'form-control']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Price</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="price" value="{{ old('price') }}">
+								{!! Form::text('price', old('price'), ['id' => 'priceInput', 'class' => 'form-control']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-info">
-									Add
-								</button>
+								{!! Form::submit('Add ', ['class' => 'btn btn-info']) !!}
 							</div>
 						</div>
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

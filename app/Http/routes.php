@@ -21,3 +21,4 @@ Route::controllers([
 ]);
 
 Route::get('products/new', 'ProductsController@create');
+Route::post('products/store', 'ProductsController@store');

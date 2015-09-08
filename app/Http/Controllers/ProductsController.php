@@ -38,7 +38,7 @@ class ProductsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		return \Redirect::back();
 	}
 
 	/**
